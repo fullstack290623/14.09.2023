@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Card Fetch Example</title>
+</head>
+<body>
+    <h1>Card Fetch Example</h1>
+    <button id="fetchCardButton" onclick="get_card()">Fetch Card</button>
+    <br />  <br />  
+    <div id="cardImageContainer"></div>    
+    <script>
+        const apiUrl = 'https://deckofcardsapi.com/api/deck/new/draw/?count=1';
+
+        const sample = 
+        {
+                "success": true,
+                "deck_id": "d3fvkby61l2p",
+                "cards": [
+                    {
+                    "code": "6D",
+                    "image": "https://deckofcardsapi.com/static/img/6D.png",
+                    "images": {
+                    "svg": "https://deckofcardsapi.com/static/img/6D.svg",
+                    "png": "https://deckofcardsapi.com/static/img/6D.png"
+                    },
+                    "value": "6",
+                    "suit": "DIAMONDS"
+                    }
+                ],
+                "remaining": 51
+        }
+
+        function get_card() {
+            fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=1') // 1
+                .then(response => response.json()) // 2
+                .then(function(data) {
+                    // this data retruned from the rest server
+                    //document.write(JSON.stringify(data))
+                    const cardImage = document.createElement('img')
+                    cardImage.src = data.cards[0].image
+                    document.getElementById('cardImageContainer').appendChild(cardImage)
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
+    </script>
+</body>
+</html>
