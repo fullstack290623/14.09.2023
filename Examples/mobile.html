@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mobile Phone Info</title>
+</head>
+<body>
+
+<h1>Mobile Phone Information</h1>
+
+<script>
+    class MobilePhone {
+        constructor(brand, model, screen_size, storage_capacity) {
+            this.brand = brand;
+            this.model = model;
+            this.screen_size = screen_size;
+            this.storage_capacity = storage_capacity;
+        }
+
+        // Setter for brand
+        set_brand(brand) {
+            this.brand = brand;
+        }
+
+        // Setter for model
+        set_model(model) {
+            this.model = model;
+        }
+
+        // Setter for screen_size
+        set_screen_size(screen_size) {
+            this.screen_size = screen_size;
+        }
+
+        // Setter for storage_capacity
+        set_storage_capacity(storage_capacity) {
+            this.storage_capacity = storage_capacity;
+        }
+    }
+
+    // Prompt the user to enter mobile phone information
+    const brand = prompt("Enter brand (e.g., iPhone or Android):");
+    const model = prompt("Enter model (e.g., Samsung S20 or iPhone 14):");
+    const screen_size = prompt("Enter screen size (e.g., 6.1 inches):");
+    const storage_capacity = prompt("Enter storage capacity (e.g., 128GB):");
+
+    // Create a new MobilePhone instance
+    const myPhone = new MobilePhone(brand, model, screen_size, storage_capacity);
+    
+    // Display mobile phone information in the console
+    console.log("Initial Mobile Phone Information:");
+    console.log("Brand:", myPhone.brand);
+    console.log("Model:", myPhone.model);
+    console.log("Screen Size:", myPhone.screen_size);
+    console.log("Storage Capacity:", myPhone.storage_capacity);
+
+    // Prompt the user to update mobile phone information
+    const updatedBrand = prompt("Update brand (e.g., iPhone or Android):");
+    const updatedModel = prompt("Update model (e.g., Samsung S20 or iPhone 14):");
+    const updatedScreenSize = prompt("Update screen size (e.g., 6.1 inches):");
+    const updatedStorageCapacity = prompt("Update storage capacity (e.g., 128GB):");
+
+    // Update the MobilePhone instance using setters
+    myPhone.set_brand(updatedBrand);
+    myPhone.set_model(updatedModel);
+    myPhone.set_screen_size(updatedScreenSize);
+    myPhone.set_storage_capacity(updatedStorageCapacity);
+
+    // Display the updated mobile phone information in the console
+    console.log("Updated Mobile Phone Information:");
+    console.log("Brand:", myPhone.brand);
+    console.log("Model:", myPhone.model);
+    console.log("Screen Size:", myPhone.screen_size);
+    console.log("Storage Capacity:", myPhone.storage_capacity);
+</script>
+
+</body>
+</html>
